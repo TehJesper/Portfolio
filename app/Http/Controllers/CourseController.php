@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Assignment;
 use App\Course;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class AssignmentController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,11 +22,9 @@ class AssignmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $course = Course::find($id);
-//        dd($course);
-        return view('dashboard.createassignment', ['course' => $course]);
+        return view('dashboard.create');
     }
 
     /**
@@ -37,17 +33,16 @@ class AssignmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $assignment = new Assignment();
+        Course::create($this->validateCourses());
 
-
-        $assignment->name = request('name');
-        $assignment->weight = request('weight');
-        $assignment->grade = request('grade');
-        $assignment->course_id = request('course');
-
-        $assignment->save();
+//        $course = new Course();
+//
+//        $course->name = request('name');
+//        $course->ecs = request('ecs');
+//
+//        $course->save();
 
         return redirect(route('dashboard.index'));
     }
@@ -55,10 +50,10 @@ class AssignmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Assignment $assignment)
+    public function show(Course $course)
     {
         //
     }
@@ -66,34 +61,48 @@ class AssignmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Assignment $assignment)
+    public function edit(Course $course)
     {
-        //
+        return view('dashboard.editcourse', ['course' => $course]);
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Assignment $assignment)
+    public function update(Request $request, Course $course)
     {
-        //
+        $course->update($this->validateCourses());
+        dd('help');
+//        dd($course);
+
+
+//        return redirect(route('dashboard.index', $course));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Assignment $assignment)
+    public function destroy(Course $course)
     {
         //
+    }
+    protected function validateCourses()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'ecs' => 'required',
+        ]);
+
     }
 }

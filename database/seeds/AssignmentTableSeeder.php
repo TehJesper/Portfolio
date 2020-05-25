@@ -28,7 +28,7 @@ class AssignmentTableSeeder extends Seeder
             [
                 'course_id' => 3,
                 'name' => 'toets',
-                'weight' => 100,
+                'weight' => 50,
                 'grade' => 7.5
             ],
             [

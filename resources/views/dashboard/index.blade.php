@@ -23,6 +23,8 @@
                         <th>weging</th>
                         <th>resultaat</th>
                     </tr>
+{{--                    {{$courses}}--}}
+
 
                 @foreach($courses as $course)
 {{--                        <br>{{ App\Course::find($course->id) }}<br>--}}
@@ -33,9 +35,13 @@
                             <td class="table-dark"></td>
                             <td class="table-dark"></td>
                             <td class="table-dark"></td>
-                            <td class="table-dark"></td>
                             <td class="table-dark">
-                                <a href="/dashboard/{{$course->id}}/edit"  style="display: block; text-decoration: none;">
+                                <a href="/dashboard/{{ $course->id }}/createassignment" style="display: block; text-decoration: none;">
+                                    <i class="icon ion-plus text-danger"></i>
+                                </a>
+                            </td>
+                            <td class="table-dark">
+                                <a href="/dashboard/{{$course->id}}/editcourse"  style="display: block; text-decoration: none;">
                                     <i class="icon ion-android-create text-danger"></i>
                                 </a>
                             </td>
@@ -47,7 +53,7 @@
                         </tr>
 {{--                        {{ $course->assignments }}<br>--}}
                     @foreach($course->assignments as $grade)
-                            {{--                                {{ (App\Course::find($course->id)->assignments) }}--}}
+{{--                                                            {{ $test = (App\Assignment::where('course_id', '=', $course->id ))}}--}}
 {{--                        {{$grade->name}}--}}
                         <tr>
                             <td></td>
@@ -56,10 +62,9 @@
                             <td>{{$grade->weight}}%</td>
                             <td>{{$grade->grade}}</td>
                             <td>
-                                <a href="/dashboard/createassignment" style="display: block; text-decoration: none;">
-                                    <i class="icon ion-plus"></i>
-                                </a>
-                            </td>  <td>
+
+                            </td>
+                            <td>
                                 <a href="/dashboard/{{$course->id}}/edit" style="display: block; text-decoration: none;">
                                     <i class="icon ion-android-create"></i>
                                 </a>

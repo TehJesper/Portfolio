@@ -22,6 +22,7 @@ class CreateAssignmentsTable extends Migration
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
 
+
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses')

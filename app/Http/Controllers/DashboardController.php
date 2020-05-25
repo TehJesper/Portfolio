@@ -17,19 +17,15 @@ class DashboardController extends Controller
         return view('dashboard.index', ['courses' => $courses, 'grades' => $grades]);
     }
 
-    public function createcourse()
+    public function create()
     {
-        return view('dashboard.createcourse');
-    }
-
-    public function createassignment()
-    {
-        return view('dashboard.createassignment');
+//        return view('dashboard.create');
     }
 
     public function store()
     {
         Course::create($this->validateDashboard());
+
 
         return redirect(route('dashboard.index'));
     }
@@ -56,7 +52,7 @@ class DashboardController extends Controller
     protected function validateDashboard()
     {
         return request()->validate([
-            'naam' => 'required',
+            'name' => 'required',
             'ecs' => 'required',
         ]);
     }

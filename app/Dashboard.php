@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dashboard extends Model
 {
-    protected $fillable = ['cursus', 'toets', 'ec', 'resultaat'];
+    protected $fillable = ['name', 'ecs'];
 }

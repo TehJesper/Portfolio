@@ -6,12 +6,13 @@
                 <div class="heading">
                     <h2>Create new record</h2>
                 </div>
-                <form method="POST" action="/dashboard">
+                <form method="POST" action="/dashboard/{{ $course->id }}">
                     @csrf
-                    Cursus:<br>
-                    <input type="text" name="cursus" class="input-group-text"><br>
-                    EC:<br>
-                    <input type="number" name="ec" class="input-group-text"><br>
+                    @method('PUT')
+                    Naam:<br>
+                    <input type="text" name="cursus" value="{{ $course->name }}"><br>
+                    ECS:<br>
+                    <input type="text" name="toets" value="{{ $course->ecs }}"><br>
                     <input type="submit">
                 </form>
             </div>

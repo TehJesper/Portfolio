@@ -14,10 +14,14 @@ Route::get('/articles/{article}/destroy', 'ArticlesController@destroy')->name('a
 Route::get('/randomarticle', 'ArticlesController@random');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
-Route::post('/dashboard', 'DashboardController@store');
-Route::get('/dashboard/createcourse', 'DashboardController@createcourse')->name('dashboard.createcourse');
-Route::get('/dashboard/createassignment', 'DashboardController@createassignment')->name('dashboard.createassignment');
-Route::get('/dashboard/{dashboard}/edit', 'DashboardController@edit')->name('dashboard.edit');
-Route::put('/dashboard/{dashboard}', 'DashboardController@update');
+//Route::get('/dashboard/{dashboard}/edit', 'DashboardController@edit')->name('dashboard.edit');
+//Route::put('/dashboard/{dashboard}', 'DashboardController@update');
 Route::get('/dashboard/{dashboard}/destroy', 'DashboardController@destroy')->name('dashboard.destroy');
 
+Route::post('/dashboard/createcourse', 'CourseController@store');
+Route::get('/dashboard/createcourse', 'CourseController@create')->name('dashboard.createcourse');
+Route::get('/dashboard/{course}/editcourse', 'CourseController@edit');
+Route::put('/dashboard/{course}', 'CourseController@update');
+
+Route::post('/dashboard/{assignment}/createassignment', 'AssignmentController@store');
+Route::get('/dashboard/{assignment}/createassignment', 'AssignmentController@create')->name('dashboard.createassignment');
