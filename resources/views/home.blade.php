@@ -6,7 +6,7 @@
                 <div class="avatar"
                      style="background-image:url(&quot;assets/img/avatars/rusty_spotted_cat.jpg&quot;);"></div>
                 <div class="about-me">
-                    <p>Hello! I am <strong>Jesper van Berlo test devops opdracht 4</strong>.</p>
+                    <p>Hello! I am <strong>Jesper van Berlo</strong>.</p>
                 </div>
             </div>
         </section>
