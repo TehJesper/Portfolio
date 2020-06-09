@@ -25,3 +25,7 @@ Route::put('/dashboard/{course}', 'CourseController@update');
 
 Route::post('/dashboard/{assignment}/createassignment', 'AssignmentController@store');
 Route::get('/dashboard/{assignment}/createassignment', 'AssignmentController@create')->name('dashboard.createassignment');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
