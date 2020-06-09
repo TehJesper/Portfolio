@@ -9,7 +9,7 @@ class TestController extends Controller
 {
     public function showhome(){
 
-        return view('home');
+        return view('home2');
     }
 
     public function showtest($test){

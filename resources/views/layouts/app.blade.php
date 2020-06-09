@@ -73,7 +73,7 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('authcontent')
         </main>
     </div>
 </body>
