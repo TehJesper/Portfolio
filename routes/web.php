@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/dashboard/{assignment}/createassignment', 'AssignmentController@create')->name('dashboard.createassignment');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

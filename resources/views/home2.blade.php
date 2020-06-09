@@ -7,7 +7,6 @@
                      style="background-image:url(&quot;assets/img/avatars/rusty_spotted_cat.jpg&quot;);"></div>
                 <div class="about-me">
                     <p>Hello! I am <strong>Jesper van Berlo</strong>.</p>
-                    <br><p>Devops Opdracht 4n</p>
                 </div>
             </div>
         </section>
