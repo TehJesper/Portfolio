@@ -11,7 +11,7 @@
                     Cursus:<br>
                     <input type="text" name="name" class="input-group-text"><br>
                     EC:<br>
-                    <input type="number" name="ecs" class="input-group-text"><br>
+                    <input type="text" name="ecs" class="input-group-text"><br>
                     <input type="submit">
                 </form>
             </div>

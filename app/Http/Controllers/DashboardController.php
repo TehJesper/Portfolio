@@ -19,11 +19,13 @@ class DashboardController extends Controller
 
     public function create()
     {
+
 //        return view('dashboard.create');
     }
 
     public function store()
     {
+
         Course::create($this->validateDashboard());
 
 

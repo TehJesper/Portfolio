@@ -35,8 +35,9 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        Course::create($this->validateCourses());
 
+        Course::create($this->validateCourses());
+//        dd('test');
 //        $course = new Course();
 //
 //        $course->name = request('name');
