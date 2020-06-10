@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use http\Url;
+use http\Env\Url;
 
 use Illuminate\Support\ServiceProvider;
 
