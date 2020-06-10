@@ -1,8 +1,8 @@
 <?php
 
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
+//if (env('APP_ENV') === 'production') {
+//    URL::forceSchema('https');
+//}
 
 Route::get('/', 'TestController@showhome')->middleware('auth');
 //Route::get('/test/{test}', 'TestController@showtest');
