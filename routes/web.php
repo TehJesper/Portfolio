@@ -25,7 +25,7 @@ Route::group([['middleware' => ['auth']], ['scheme' => 'https']], function (){
     Route::get('/articles/{article}/destroy', 'ArticlesController@destroy')->name('articles.destroy');
     Route::get('/randomarticle', 'ArticlesController@random');
 });
-Route::group(['scheme' => 'https', 'middleware' => ['auth'],], function (){
+Route::group(['middleware' => ['auth']], function (){
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
     //Route::get('/dashboard/{dashboard}/edit', 'DashboardController@edit')->name('dashboard.edit');
     //Route::put('/dashboard/{dashboard}', 'DashboardController@update');
