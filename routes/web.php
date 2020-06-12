@@ -9,13 +9,12 @@
 //    // Route::get(...)->name(...);
 //});
 
-Route::group([['middleware' => ['auth']],[ 'scheme' => 'https']], function()
-{
+
     Route::get('/', 'TestController@showhome');
     //Route::get('/test/{test}', 'TestController@showtest');
     Route::get('/about', 'TestController@showabout');
-});
-Route::group([['middleware' => ['auth']], ['scheme' => 'https']], function (){
+
+Route::group([['middleware' => ['auth']], function (){
     Route::get('/articles', 'ArticlesController@index')->name('articles.index');
     Route::post('/articles', 'ArticlesController@store');
     Route::get('/articles/create', 'ArticlesController@create')->name('articles.create');
