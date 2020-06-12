@@ -12,10 +12,17 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testLandingPage()
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
+        $response->assertLocation('/login');
     }
+
+//    public function test(){
+//        $response = $this->get('/');
+//        $response->assertStatus(302);
+//    }
 }
+
