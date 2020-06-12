@@ -14,7 +14,7 @@
     //Route::get('/test/{test}', 'TestController@showtest');
     Route::get('/about', 'TestController@showabout');
 
-Route::group([['middleware' => ['auth']], function (){
+Route::group(['middleware' => ['auth']], function (){
     Route::get('/articles', 'ArticlesController@index')->name('articles.index');
     Route::post('/articles', 'ArticlesController@store');
     Route::get('/articles/create', 'ArticlesController@create')->name('articles.create');
