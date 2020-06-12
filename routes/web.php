@@ -5,9 +5,9 @@
 //}
 
 
-Route::group(['scheme' => 'https'], function () {
-    // Route::get(...)->name(...);
-});
+//Route::group(['scheme' => 'https'], function () {
+//    // Route::get(...)->name(...);
+//});
 
 Route::group(['middleware' => ['auth'], 'scheme' => 'https'], function()
 {
