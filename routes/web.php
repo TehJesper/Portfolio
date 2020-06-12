@@ -1,14 +1,21 @@
 <?php
 
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
+//if (env('APP_ENV') === 'production') {
+//    URL::forceSchema('https');
+//}
 
-Route::get('/', 'TestController@showhome')->middleware('auth');
-//Route::get('/test/{test}', 'TestController@showtest');
-Route::get('/about', 'TestController@showabout')->middleware('auth');
 
-Route::group(['middleware' => ['auth']], function (){
+Route::group(['scheme' => 'https'], function () {
+    // Route::get(...)->name(...);
+});
+
+Route::group(['middleware' => ['auth'], 'scheme' => 'https'], function()
+{
+    Route::get('/', 'TestController@showhome');
+    //Route::get('/test/{test}', 'TestController@showtest');
+    Route::get('/about', 'TestController@showabout');
+});
+Route::group(['middleware' => ['auth'], 'scheme' => 'https'], function (){
     Route::get('/articles', 'ArticlesController@index')->name('articles.index');
     Route::post('/articles', 'ArticlesController@store');
     Route::get('/articles/create', 'ArticlesController@create')->name('articles.create');
@@ -18,7 +25,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/articles/{article}/destroy', 'ArticlesController@destroy')->name('articles.destroy');
     Route::get('/randomarticle', 'ArticlesController@random');
 });
-Route::group(['middleware' => ['auth']], function (){
+Route::group(['middleware' => ['auth'], 'scheme' => 'https'], function (){
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
     //Route::get('/dashboard/{dashboard}/edit', 'DashboardController@edit')->name('dashboard.edit');
     //Route::put('/dashboard/{dashboard}', 'DashboardController@update');
